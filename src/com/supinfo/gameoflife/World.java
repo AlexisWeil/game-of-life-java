@@ -26,30 +26,38 @@ public class World {
 		for(int i = 0 ; i < this.world.length ; i++) {
 			for(int j = 0 ; j < this.world[i].length ; j++) {
 				int nbNeighbours = 0;
-				
+
+                // Si la cellule n'est pas située sur la première ligne
 				if(i > 0) {
 					nbNeighbours += (world[i - 1][j].isAlive() ? 1 : 0);
-				
+
+                    // Si la cellule n'est pas située sur la première colonne
 					if(j > 0)
 						nbNeighbours += (world[i - 1][j - 1].isAlive() ? 1 : 0);
-					
+
+                    // Si la cellule n'est pas située sur la dernière colonne
 					if(j < world[i].length - 1)
 						nbNeighbours += (world[i - 1][j + 1].isAlive() ? 1 : 0);
 				}
-				
+
+                // Si la cellule n'est pas située sur la dernière ligne
 				if(i < world.length - 1) {
 					nbNeighbours += (world[i + 1][j].isAlive() ? 1 : 0);
-					
+
+                    // Si la cellule n'est pas située sur la première colonne
 					if(j > 0)
 						nbNeighbours += (world[i + 1][j - 1].isAlive() ? 1 : 0);
-					
+
+                    // Si la cellule n'est pas située sur la dernière colonne
 					if(j < world[i].length - 1)
 						nbNeighbours += (world[i + 1][j + 1].isAlive() ? 1 : 0);
 				}
-				
+
+                // Si la cellule n'est pas située sur la première colonne
 				if(j > 0)
 					nbNeighbours += (world[i][j - 1].isAlive() ? 1 : 0);
-				
+
+                // Si la cellule n'est pas située sur la dernière colonne
 				if(j < world[i].length - 1)
 					nbNeighbours += (world[i][j + 1].isAlive() ? 1 : 0);
 				

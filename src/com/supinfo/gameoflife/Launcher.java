@@ -7,7 +7,7 @@ public class Launcher {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		int nbRows = 0, nbColumns = 0;
 		int minRows = 10, minCols = 10;
 		boolean cont = true;
@@ -46,11 +46,13 @@ public class Launcher {
 		
 		World world = new World(nbRows, nbColumns);
 		
-		for(int i = 0 ; i < 10 ; i++) {
+		for(int i = 0 ; i < 100 ; i++) {
 			world.newGeneration();
 			
 			System.out.println("World n°" + (i + 1) + " : \n");
 			System.out.println(world);
+
+            Thread.sleep(1000);
 		}
 	}
 
